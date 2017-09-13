@@ -11,7 +11,7 @@ import UIKit
 class MNEditToolBar: UIView {
 
     let line = UIView.init(frame: CGRect.init(x: 0, y: 0, width: APP_SCREEN_WIDTH, height: 0.5))
-    
+    var selectBlock:((_ index: NSInteger)->Void)?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -39,19 +39,9 @@ class MNEditToolBar: UIView {
     }
     
     func buttonClicked(_ button: UIButton) {
-        switch button.tag {
-        case 0:
-            break
-        case 1:
-            break
-        case 2:
-            break
-        case 3:
-            break
-        default:
-            break
+        if nil != selectBlock {
+            selectBlock!(button.tag)
         }
-        
     }
 
     func image(index: NSInteger) -> UIImage? {

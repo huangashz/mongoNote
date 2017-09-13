@@ -52,6 +52,28 @@ class MNEditorViewController: MNBaseViewController, UITextViewDelegate {
     func initToolbar() {
         editToolbar = MNEditToolBar.init(frame: CGRect.init(x: 0, y: view.frame.size.height, width: view.frame.size.width, height: 40))
         view.addSubview(editToolbar!)
+        
+        editToolbar?.selectBlock = {
+            index in
+            switch index {
+            case 0:
+                //选取相册照片
+                self.editor?.textView?.resignFirstResponder()
+                let imagePickerController = MNNavigationController.init(rootViewController: EKImagePickerViewController())
+                self.navigationController?.present(imagePickerController, animated: true, completion: {
+                    
+                })
+                break
+            case 1:
+                break
+            case 2:
+                break
+            case 3:
+                break
+            default:
+                break
+            }
+        }
     }
     
     func showToolbar(positonY: CGFloat) {

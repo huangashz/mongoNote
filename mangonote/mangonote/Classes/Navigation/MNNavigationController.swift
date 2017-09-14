@@ -16,11 +16,9 @@ class MNNavigationController: UINavigationController {
 //        self.navigationBar.backgroundColor = .clear
         UINavigationBar.appearance().tintColor = MNColors.bg1()
 //        self.navigationBar.clipsToBounds = true
-//        [[[self.navigationController.navigationBar subviews] objectAtIndex:0] setAlpha:0];
-        let view = self.navigationBar.subviews.first
-        view?.alpha = 0;
+
         let fakeNavi = UIView.init(frame: CGRect.init(x: 0, y: 0, width: APP_SCREEN_WIDTH, height: 64))
-        fakeNavi.backgroundColor = UIColor.white.withAlphaComponent(0.7)
+        fakeNavi.backgroundColor = UIColor.white.withAlphaComponent(0.9)
         self.view.insertSubview(fakeNavi, belowSubview: self.navigationBar)
         // Do any additional setup after loading the view.
     }
@@ -30,6 +28,14 @@ class MNNavigationController: UINavigationController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+ 
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+    }
 
     /*
     // MARK: - Navigation

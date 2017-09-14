@@ -35,6 +35,8 @@
 		BD70C74D1F69375D00968969 /* EKImagePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD70C7461F69375D00968969 /* EKImagePickerViewController.swift */; };
 		BD70C74E1F69375D00968969 /* EKImagePickerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD70C7471F69375D00968969 /* EKImagePickerHelper.swift */; };
 		BD70C74F1F69375D00968969 /* image_pickerDefault@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BD70C7481F69375D00968969 /* image_pickerDefault@2x.png */; };
+		BD70C7511F6A1F3B00968969 /* EKImagePcikerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD70C7501F6A1F3B00968969 /* EKImagePcikerDelegate.swift */; };
+		CDE18CA4E157573644211128 /* Pods_mangonote.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70CCEB1D85A049C61EB81F42 /* Pods_mangonote.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D9861D7DC38077BC29AD359 /* Pods-mangonote.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mangonote.release.xcconfig"; path = "Pods/Target Support Files/Pods-mangonote/Pods-mangonote.release.xcconfig"; sourceTree = "<group>"; };
+		70CCEB1D85A049C61EB81F42 /* Pods_mangonote.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mangonote.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD1F983A1F4C6F89008E3302 /* mangonote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mangonote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD1F98441F4C6F89008E3302 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD1F98471F4C6F89008E3302 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -89,6 +93,8 @@
 		BD70C7461F69375D00968969 /* EKImagePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EKImagePickerViewController.swift; sourceTree = "<group>"; };
 		BD70C7471F69375D00968969 /* EKImagePickerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EKImagePickerHelper.swift; sourceTree = "<group>"; };
 		BD70C7481F69375D00968969 /* image_pickerDefault@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "image_pickerDefault@2x.png"; sourceTree = "<group>"; };
+		BD70C7501F6A1F3B00968969 /* EKImagePcikerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EKImagePcikerDelegate.swift; sourceTree = "<group>"; };
+		D401247031CD35A50F128EE9 /* Pods-mangonote.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mangonote.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mangonote/Pods-mangonote.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDE18CA4E157573644211128 /* Pods_mangonote.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,6 +123,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		456B4F305A077E34DCB46B4E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D401247031CD35A50F128EE9 /* Pods-mangonote.debug.xcconfig */,
+				3D9861D7DC38077BC29AD359 /* Pods-mangonote.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B4F35E2BE689049C7E5A5B0B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				70CCEB1D85A049C61EB81F42 /* Pods_mangonote.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BD1F98311F4C6F89008E3302 = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +147,8 @@
 				BD1F98511F4C6F89008E3302 /* mangonoteTests */,
 				BD1F985C1F4C6F89008E3302 /* mangonoteUITests */,
 				BD1F983B1F4C6F89008E3302 /* Products */,
+				456B4F305A077E34DCB46B4E /* Pods */,
+				B4F35E2BE689049C7E5A5B0B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -261,6 +287,7 @@
 				BD70C7421F69375D00968969 /* EKImagePickerExtension.swift */,
 				BD70C7471F69375D00968969 /* EKImagePickerHelper.swift */,
 				BD70C7461F69375D00968969 /* EKImagePickerViewController.swift */,
+				BD70C7501F6A1F3B00968969 /* EKImagePcikerDelegate.swift */,
 				BD70C7431F69375D00968969 /* EKSmallPhotoCell.swift */,
 				BD70C7481F69375D00968969 /* image_pickerDefault@2x.png */,
 				BD70C7451F69375D00968969 /* image_pickerDefault@3x.png */,
@@ -275,9 +302,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BD1F98621F4C6F89008E3302 /* Build configuration list for PBXNativeTarget "mangonote" */;
 			buildPhases = (
+				157FBD6AE83B06B3C47156BD /* [CP] Check Pods Manifest.lock */,
 				BD1F98361F4C6F89008E3302 /* Sources */,
 				BD1F98371F4C6F89008E3302 /* Frameworks */,
 				BD1F98381F4C6F89008E3302 /* Resources */,
+				94EC00FB3BC0630EA3F53DC0 /* [CP] Embed Pods Frameworks */,
+				3E266735400913B96D350B38 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -405,6 +435,62 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		157FBD6AE83B06B3C47156BD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-mangonote-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3E266735400913B96D350B38 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-mangonote/Pods-mangonote-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		94EC00FB3BC0630EA3F53DC0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-mangonote/Pods-mangonote-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-mangonote/Pods-mangonote-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BD1F98361F4C6F89008E3302 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -427,6 +513,7 @@
 				BD6DBF2B1F56F60D00B98052 /* MNTimelineViewController.swift in Sources */,
 				BD70C7491F69375D00968969 /* EKImagePickerExtension.swift in Sources */,
 				BD317B341F584F2E007F7E61 /* MNColors.swift in Sources */,
+				BD70C7511F6A1F3B00968969 /* EKImagePcikerDelegate.swift in Sources */,
 				BD6DBF231F56F55000B98052 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -569,6 +656,7 @@
 		};
 		BD1F98631F4C6F89008E3302 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D401247031CD35A50F128EE9 /* Pods-mangonote.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = S2XPY7G7HH;
@@ -583,6 +671,7 @@
 		};
 		BD1F98641F4C6F89008E3302 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3D9861D7DC38077BC29AD359 /* Pods-mangonote.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = S2XPY7G7HH;

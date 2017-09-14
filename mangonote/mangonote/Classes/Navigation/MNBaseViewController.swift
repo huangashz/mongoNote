@@ -23,8 +23,15 @@ class MNBaseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let navBackground = self.navigationController?.navigationBar.subviews.first
+        navBackground?.alpha = 0
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let navBackground = self.navigationController?.navigationBar.subviews.first
+        navBackground?.alpha = 0
     }
 
     override func didReceiveMemoryWarning() {

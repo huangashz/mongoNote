@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MNEditorViewController: MNBaseViewController, UITextViewDelegate {
+class MNEditorViewController: MNBaseViewController, EKImagePcikerDelegate {
     
     var editor: MNEditor?
     var editToolbar: MNEditToolBar?
@@ -59,8 +59,10 @@ class MNEditorViewController: MNBaseViewController, UITextViewDelegate {
             case 0:
                 //选取相册照片
                 self.editor?.textView?.resignFirstResponder()
-                let imagePickerController = MNNavigationController.init(rootViewController: EKImagePickerViewController())
-                self.navigationController?.present(imagePickerController, animated: true, completion: {
+                let imagePickerController = EKImagePickerViewController()
+                imagePickerController.delegate = self
+                let imagePickerNavController = MNNavigationController.init(rootViewController: imagePickerController)
+                self.navigationController?.present(imagePickerNavController, animated: true, completion: {
                     
                 })
                 break
@@ -112,7 +114,16 @@ class MNEditorViewController: MNBaseViewController, UITextViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-
+    
+    // MARK: - EKImagePcikerDelegate
+    
+    func imagePickerDidFinished(photos: [UIImage]) {
+        if photos.count > 0 {
+            
+        }
+        self.editor?.textView?.becomeFirstResponder()
+    }
+    
      /*
     // MARK: - Navigation
 

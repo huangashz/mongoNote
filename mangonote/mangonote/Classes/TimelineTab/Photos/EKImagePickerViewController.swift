@@ -16,8 +16,10 @@ let screenHeight = UIScreen.main.bounds.size.height
 
 let EKPhotoReuseIdentifier = "EKPhotoCell"
 
-class EKImagePickerViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-
+class EKImagePickerViewController: MNBaseViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    var delegate: EKImagePcikerDelegate?
+    
     let layout = UICollectionViewFlowLayout()
     var collectionView : UICollectionView?
     var pickerContext :EKImagePickerContext?
@@ -61,7 +63,7 @@ class EKImagePickerViewController: UIViewController, UICollectionViewDelegate, U
     
     func dismissController() {
         self.dismiss(animated: true) {
-            
+            self.delegate?.imagePickerDidFinished(photos: [])
         }
     }
 

@@ -127,3 +127,49 @@ extension UIView {
     
 }
 
+
+extension String {
+    static public func stringForDate(_ date: Date) -> String {
+        let now = Date()
+        let calendar = Calendar.current
+        
+        let dateDay = calendar.component(.day, from: date)
+        let dateMonth = calendar.component(.month, from: date)
+        let dateYear = calendar.component(.year, from: date)
+        
+        let nowDay = calendar.component(.day, from: now)
+        let nowMonth = calendar.component(.month, from: now)
+        let nowYear = calendar.component(.year, from: now)
+        
+        if dateYear == nowYear {
+            if dateMonth == nowMonth {
+                if dateDay == nowDay {
+                    return "今天"
+                }
+                else if nowDay - dateDay <= 5 {
+                    return "\(nowDay - dateDay)天前"
+                }
+            }
+        }
+        let dateformatter = DateFormatter()
+        dateformatter.dateFormat = " YYYY/MM/dd"
+        return dateformatter.string(from: date)
+    }
+    
+    func sizeWithFont(_ font: UIFont) -> CGSize {
+        let textString = self as NSString
+        let attr = [NSFontAttributeName : font]
+        return textString.size(attributes: attr)
+    }
+    
+    func heightWithConstrainedWidth(width: CGFloat, font: UIFont) -> CGFloat {
+        let constraintRect = CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)
+        let boundingBox = self.boundingRect(with: constraintRect, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
+        return boundingBox.height
+    }
+    
+}
+
+
+
+

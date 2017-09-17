@@ -11,6 +11,8 @@
 		BD1F98481F4C6F89008E3302 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD1F98461F4C6F89008E3302 /* LaunchScreen.storyboard */; };
 		BD1F98531F4C6F89008E3302 /* mangonoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1F98521F4C6F89008E3302 /* mangonoteTests.swift */; };
 		BD1F985E1F4C6F89008E3302 /* mangonoteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1F985D1F4C6F89008E3302 /* mangonoteUITests.swift */; };
+		BD2DBC941F6BF4B400D7994D /* MNNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2DBC931F6BF4B400D7994D /* MNNote.swift */; };
+		BD2DBC981F6BF9B400D7994D /* MNTimelineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2DBC971F6BF9B400D7994D /* MNTimelineModel.swift */; };
 		BD317B221F57E596007F7E61 /* MNEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD317B211F57E596007F7E61 /* MNEditor.swift */; };
 		BD317B241F583D4F007F7E61 /* MNEditToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD317B231F583D4F007F7E61 /* MNEditToolBar.swift */; };
 		BD317B2B1F584758007F7E61 /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = BD317B261F584758007F7E61 /* camera.png */; };
@@ -69,6 +71,8 @@
 		BD1F98591F4C6F89008E3302 /* mangonoteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mangonoteUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD1F985D1F4C6F89008E3302 /* mangonoteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mangonoteUITests.swift; sourceTree = "<group>"; };
 		BD1F985F1F4C6F89008E3302 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BD2DBC931F6BF4B400D7994D /* MNNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MNNote.swift; sourceTree = "<group>"; };
+		BD2DBC971F6BF9B400D7994D /* MNTimelineModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MNTimelineModel.swift; sourceTree = "<group>"; };
 		BD317B211F57E596007F7E61 /* MNEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MNEditor.swift; sourceTree = "<group>"; };
 		BD317B231F583D4F007F7E61 /* MNEditToolBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MNEditToolBar.swift; sourceTree = "<group>"; };
 		BD317B261F584758007F7E61 /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera.png; sourceTree = "<group>"; };
@@ -266,6 +270,8 @@
 		BD6DBF291F56F60D00B98052 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				BD2DBC931F6BF4B400D7994D /* MNNote.swift */,
+				BD2DBC971F6BF9B400D7994D /* MNTimelineModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -478,11 +484,13 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-mangonote/Pods-mangonote-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -500,8 +508,10 @@
 				BD70C74E1F69375D00968969 /* EKImagePickerHelper.swift in Sources */,
 				BD6DBF241F56F55000B98052 /* MNNavigationController.swift in Sources */,
 				BD317B241F583D4F007F7E61 /* MNEditToolBar.swift in Sources */,
+				BD2DBC941F6BF4B400D7994D /* MNNote.swift in Sources */,
 				BD6DBF2F1F56F96800B98052 /* MNTimelineCell.swift in Sources */,
 				BD6DBF331F57049700B98052 /* MNBaseViewController.swift in Sources */,
+				BD2DBC981F6BF9B400D7994D /* MNTimelineModel.swift in Sources */,
 				BD6DBF311F56FC6700B98052 /* MNEditorViewController.swift in Sources */,
 				BD317B361F58505F007F7E61 /* MNExtensions.swift in Sources */,
 				BD6DBF2D1F56F80900B98052 /* MNCollectionViewFlowLayout.swift in Sources */,

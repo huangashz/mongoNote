@@ -14,22 +14,42 @@ class MNTimelineViewController: MNBaseViewController, UICollectionViewDataSource
 
     var collectionView: UICollectionView?
     
-    var collectionViewLayout = MNCollectionViewFlowLayout()
+//    var collectionViewLayout = MNCollectionViewFlowLayout()
+    var collectionViewLayout = UICollectionViewFlowLayout()
 
+    var model = MNTimelineModel()
+    
     override func loadView() {
         super.loadView()
-        view.backgroundColor = MNColors.bg4()
+        view.backgroundColor = MNColors.White90()
         self.navigationItem.title = "芒果便签"
+                
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .add, target: self, action: #selector(createNewNote))
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+        ///add test data
+//        try! mnRealm.write {
+//            mnRealm.deleteAll()
+//        }
+//        for _ in 0..<8 {
+//            let note = MNNote()
+//            note.createAt = Date()
+//            note.title = "一篇日记,如果没有过多的语法润泽，那么也是一篇不好的文章，对于散文，大家都很喜欢，喜欢朱自清的洒脱，李清照的温柔，李白我欲成仙的潇洒，杜甫那深入人心，扎人心骨的刀子。"
+//            note.updateUIInfo()
+//            try! mnRealm.write {
+//                mnRealm.add(note)
+//            }
+//        }
+        model.fetch()
+        collectionView?.reloadData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-         // Do any additional setup after loading the view.
+        model.fetch()
         initCollectionView()
     }
     
@@ -37,7 +57,7 @@ class MNTimelineViewController: MNBaseViewController, UICollectionViewDataSource
         if nil == collectionView {
             collectionViewLayout.itemSize = CGSize(width: APP_SCREEN_WIDTH, height: 160)
             collectionViewLayout.scrollDirection = UICollectionViewScrollDirection.vertical//设置垂直显示
-            collectionViewLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0)//设置边距
+            collectionViewLayout.sectionInset = UIEdgeInsetsMake(10, 0, 10, 0)//设置边距
             collectionViewLayout.minimumLineSpacing = 10.0 //每个相邻的layout的上下间隔
             let rect = CGRect.init(x: 0, y: 0, width: APP_SCREEN_WIDTH, height: APP_SCREEN_HEIGHT)
             collectionView = UICollectionView.init(frame: rect, collectionViewLayout: collectionViewLayout)
@@ -49,6 +69,11 @@ class MNTimelineViewController: MNBaseViewController, UICollectionViewDataSource
         }
     }
 
+    func createNewNote() {
+        let editorVC = MNEditorViewController()
+        navigationController?.pushViewController(editorVC, animated: true)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -70,27 +95,28 @@ class MNTimelineViewController: MNBaseViewController, UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
         
-        return 20;
+        return model.numbersOfNotes();
         
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
         
         let cell:MNTimelineCell  = collectionView.dequeueReusableCell(withReuseIdentifier: reuseId, for: indexPath as IndexPath) as! MNTimelineCell
-        
-        cell.backgroundColor = self.randomColor()
-        
+        let noteInfo = model.noteAtIndex(indexPath.row)
+        cell.updateContent(info: noteInfo)
         return cell;
         
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return indexPath.row%2 == 0 ? CGSize(width: APP_SCREEN_WIDTH, height: 160) : CGSize(width: APP_SCREEN_WIDTH, height: 80)
+        let noteInfo = model.noteAtIndex(indexPath.row)
+        return CGSize.init(width: APP_SCREEN_WIDTH, height: noteInfo.cellHeight)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        MNNavigationController.init(rootViewController: MNEditorViewController()
-        navigationController?.pushViewController(MNEditorViewController(), animated: true)
+        let editorVC = MNEditorViewController()
+        editorVC.model = model.noteAtIndex(indexPath.row)
+        navigationController?.pushViewController(editorVC, animated: true)
     }
 
     /*

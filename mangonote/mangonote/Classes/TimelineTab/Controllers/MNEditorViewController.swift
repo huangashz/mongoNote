@@ -10,6 +10,9 @@ import UIKit
 
 class MNEditorViewController: MNBaseViewController, EKImagePcikerDelegate {
     
+    var model: MNNote?
+    var isNew = false
+    
     var editor: MNEditor?
     var editToolbar: MNEditToolBar?
     
@@ -37,11 +40,45 @@ class MNEditorViewController: MNBaseViewController, EKImagePcikerDelegate {
          _textView.attributedText = string;
          */
 //        let testStr: NSMutableString = NSMutableString.init(string: editor?.textView?.attributedText)
-        let textAtt = NSTextAttachment()
-        textAtt.image = UIImage.init(named: "camera.png")
-        let string = NSAttributedString.init(attachment: textAtt)
-        editor?.textView?.attributedText = string
+//        let textAtt = NSTextAttachment()
+//        textAtt.image = UIImage.init(named: "camera.png")
+//        let string = NSAttributedString.init(attachment: textAtt)
+//        editor?.textView?.attributedText = string
         
+        if nil == model {
+            model = MNNote()
+            isNew = true
+        }else{
+            let text = model?.title
+            editor?.textView?.text = text
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.editor?.textView?.becomeFirstResponder()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        //save note
+        let isEmty = editor?.textView?.text.isEmpty
+        try! mnRealm.write {
+            //如果内容为空，则从数据库中删除
+            if isEmty! {
+                mnRealm.delete(model!)
+            }else{
+                if isNew {
+                    mnRealm.add(model!)
+                }
+                model?.title = (editor?.textView?.text!)!
+                //        model?.hasImage =
+                //        model?.imageData =
+                model?.createAt = Date()
+                model?.updateUIInfo()
+            }
+        }
     }
     
     func initEditor() {
@@ -121,7 +158,6 @@ class MNEditorViewController: MNBaseViewController, EKImagePcikerDelegate {
         if photos.count > 0 {
             
         }
-        self.editor?.textView?.becomeFirstResponder()
     }
     
      /*

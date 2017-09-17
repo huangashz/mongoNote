@@ -13,6 +13,7 @@ class MNEditorViewController: MNBaseViewController, EKImagePcikerDelegate {
     var model: MNNote?
     var isNew = false
     
+    var lastContent: String?
     var editor: MNEditor?
     var editToolbar: MNEditToolBar?
     
@@ -48,9 +49,11 @@ class MNEditorViewController: MNBaseViewController, EKImagePcikerDelegate {
         if nil == model {
             model = MNNote()
             isNew = true
+            lastContent = ""
         }else{
             let text = model?.title
             editor?.textView?.text = text
+            lastContent = text
         }
     }
     
@@ -72,11 +75,15 @@ class MNEditorViewController: MNBaseViewController, EKImagePcikerDelegate {
                 if isNew {
                     mnRealm.add(model!)
                 }
-                model?.title = (editor?.textView?.text!)!
-                //        model?.hasImage =
-                //        model?.imageData =
-                model?.createAt = Date()
-                model?.updateUIInfo()
+                let contentStr = (editor?.textView?.text!)!
+                let contentChanged = lastContent != contentStr
+                if contentChanged {
+                    model?.title = contentStr
+                    //        model?.hasImage =
+                    //        model?.imageData =
+                    model?.createAt = Date()
+                    model?.updateUIInfo()
+                }
             }
         }
     }

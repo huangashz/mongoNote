@@ -78,7 +78,7 @@ class MNTimelineCell: UICollectionViewCell {
         abstract.snp.remakeConstraints { (make) in
             make.width.equalTo(textWidth)
             make.height.equalTo(info.textHeight)
-            make.top.equalTo(line.bottom + 14)
+            make.top.equalTo(line.snp.bottom).offset(14)
             make.left.equalTo(14)
         }
         
@@ -87,7 +87,7 @@ class MNTimelineCell: UICollectionViewCell {
         imageView.snp.remakeConstraints { (make) in
             make.width.equalTo(imageWidth)
             make.height.equalTo(imageHeight)
-            make.top.equalTo(abstract.bottom + 5)
+            make.top.equalTo(abstract.snp.bottom).offset(5)
             make.left.equalTo(14)
         }
     }

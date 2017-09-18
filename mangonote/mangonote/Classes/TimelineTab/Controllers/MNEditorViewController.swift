@@ -9,12 +9,13 @@
 import UIKit
 
 class MNEditorViewController: MNBaseViewController, EKImagePcikerDelegate {
-    
+        
     var model: MNNote?
     var isNew = false
     
+    lazy var editor = MNEditor()
+
     var lastContent: String?
-    var editor: MNEditor?
     var editToolbar: MNEditToolBar?
     
     override func loadView() {
@@ -52,45 +53,22 @@ class MNEditorViewController: MNBaseViewController, EKImagePcikerDelegate {
             lastContent = ""
         }else{
             let text = model?.title
-            editor?.textView?.text = text
+            editor.textView?.text = text
             lastContent = text
         }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.editor?.textView?.becomeFirstResponder()
+        self.editor.textView?.becomeFirstResponder()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        
-        //save note
-        let isEmty = editor?.textView?.text.isEmpty
-        try! mnRealm.write {
-            //如果内容为空，则从数据库中删除
-            if isEmty! {
-                mnRealm.delete(model!)
-            }else{
-                if isNew {
-                    mnRealm.add(model!)
-                }
-                let contentStr = (editor?.textView?.text!)!
-                let contentChanged = lastContent != contentStr
-                if contentChanged {
-                    model?.title = contentStr
-                    //        model?.hasImage =
-                    //        model?.imageData =
-                    model?.createAt = Date()
-                    model?.updateUIInfo()
-                }
-            }
-        }
     }
     
     func initEditor() {
-        editor = MNEditor()
-        view.addSubview(editor!.textView!)
+        view.addSubview(editor.textView!)
     }
     
     func initToolbar() {
@@ -102,7 +80,7 @@ class MNEditorViewController: MNBaseViewController, EKImagePcikerDelegate {
             switch index {
             case 0:
                 //选取相册照片
-                self.editor?.textView?.resignFirstResponder()
+                self.editor.textView?.resignFirstResponder()
                 let imagePickerController = EKImagePickerViewController()
                 imagePickerController.delegate = self
                 let imagePickerNavController = MNNavigationController.init(rootViewController: imagePickerController)
@@ -140,16 +118,16 @@ class MNEditorViewController: MNBaseViewController, EKImagePcikerDelegate {
         let nsValue = userinfo.object(forKey: UIKeyboardFrameEndUserInfoKey) as! NSValue
         let keyboardRec = nsValue.cgRectValue
         let height = keyboardRec.size.height
-        UIView.animate(withDuration: 0.25) { 
-            self.editor?.textView?.frame = CGRect.init(x: 0, y: self.editor!.textView!.frame.origin.y, width: self.editor!.textView!.frame.size.width, height: self.view.frame.size.height - height - 50 - self.editToolbar!.frame.size.height)
-        }
+//        UIView.animate(withDuration: 0.25) { 
+//            self.editor.textView?.frame = CGRect.init(x: 0, y: self.editor.textView!.frame.origin.y, width: self.editor.textView!.frame.size.width, height: self.view.frame.size.height - height - 50 - self.editToolbar!.frame.size.height)
+//        }
         self.showToolbar(positonY: view.frame.size.height - height)
     }
     
     func keyboardWillHide(notification: Notification) {
-        UIView.animate(withDuration: 0.25) { 
-            self.editor?.textView?.frame = CGRect.init(x: 0, y: self.editor!.textView!.frame.origin.y, width: self.editor!.textView!.frame.size.width, height: self.view.frame.size.height)
-        }
+//        UIView.animate(withDuration: 0.25) { 
+//            self.editor.textView?.frame = CGRect.init(x: 0, y: self.editor.textView!.frame.origin.y, width: self.editor.textView!.frame.size.width, height: self.view.frame.size.height)
+//        }
         self.hideToolbar()
     }
 
@@ -158,6 +136,29 @@ class MNEditorViewController: MNBaseViewController, EKImagePcikerDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    func saveNote() {
+        //save note
+        let isEmty = editor.textView?.text.isEmpty
+        try! mnRealm.write {
+            //如果内容为空，则从数据库中删除
+            if isEmty! {
+                mnRealm.delete(model!)
+            }else{
+                if isNew {
+                    mnRealm.add(model!)
+                }
+                let contentStr = (editor.textView?.text!)!
+                let contentChanged = lastContent != contentStr
+                if contentChanged {
+                    model?.title = contentStr
+                    //        model?.hasImage =
+                    //        model?.imageData =
+                    model?.createAt = Date()
+                    model?.updateUIInfo()
+                }
+            }
+        }
+    }
     
     // MARK: - EKImagePcikerDelegate
     

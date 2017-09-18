@@ -8,10 +8,16 @@
 
 import UIKit
 
+protocol MNEditorDelegate {
+    func contentTextDidChanged()
+}
+
 let textFont = CGFloat(17)
 
 class MNEditor: NSObject,UIScrollViewDelegate, UITextViewDelegate {
     
+    var delegate: MNEditorDelegate?
+
     var textView: UITextView?
     
     override init() {
@@ -51,6 +57,7 @@ class MNEditor: NSObject,UIScrollViewDelegate, UITextViewDelegate {
     
     func textViewDidChange(_ textView: UITextView) {
         updateCursorPosition(textView)
+        delegate?.contentTextDidChanged()
     }
     
     func updateCursorPosition(_ textView: UITextView) {

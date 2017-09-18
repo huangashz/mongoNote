@@ -10,14 +10,13 @@ import UIKit
 
 let reuseId = "collectionViewCellReuseId"
 
-class MNTimelineViewController: MNBaseViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+class MNTimelineViewController: MNBaseViewController, MNEditorDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     var collectionView: UICollectionView?
-    
 //    var collectionViewLayout = MNCollectionViewFlowLayout()
     var collectionViewLayout = UICollectionViewFlowLayout()
-
     var model = MNTimelineModel()
+    var editorViewController : MNEditorViewController?
     
     override func loadView() {
         super.loadView()
@@ -46,8 +45,6 @@ class MNTimelineViewController: MNBaseViewController, UICollectionViewDataSource
 //                mnRealm.add(note)
 //            }
 //        }
-        model.fetch()
-        collectionView?.reloadData()
     }
     
     override func viewDidLoad() {
@@ -68,13 +65,13 @@ class MNTimelineViewController: MNBaseViewController, UICollectionViewDataSource
             collectionView?.register(MNTimelineCell.classForCoder(), forCellWithReuseIdentifier: reuseId)
             collectionView?.dataSource = self
             collectionView?.delegate = self
+            collectionView?.alwaysBounceVertical = true
             self.view.addSubview(collectionView!)
         }
     }
 
     func createNewNote() {
-        let editorVC = MNEditorViewController()
-        navigationController?.pushViewController(editorVC, animated: true)
+        pushEditorViewController(model: nil)
     }
     
     override func didReceiveMemoryWarning() {
@@ -117,11 +114,24 @@ class MNTimelineViewController: MNBaseViewController, UICollectionViewDataSource
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let editorVC = MNEditorViewController()
-        editorVC.model = model.noteAtIndex(indexPath.row)
-        navigationController?.pushViewController(editorVC, animated: true)
+        pushEditorViewController(model: model.noteAtIndex(indexPath.row))
     }
 
+    func pushEditorViewController(model: MNNote?) {
+        let editorVC = MNEditorViewController()
+        editorVC.model = model
+        editorVC.editor.delegate = self
+        editorViewController = editorVC
+        navigationController?.pushViewController(editorVC, animated: true)
+    }
+    
+    //MARK: - MNEditorDelegate
+    func contentTextDidChanged() {
+        editorViewController?.saveNote()
+        model.fetch()
+        collectionView?.reloadData()
+    }
+    
     /*
     // MARK: - Navigation
 

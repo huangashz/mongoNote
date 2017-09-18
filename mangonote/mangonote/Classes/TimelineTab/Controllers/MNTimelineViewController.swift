@@ -10,7 +10,7 @@ import UIKit
 
 let reuseId = "collectionViewCellReuseId"
 
-class MNTimelineViewController: MNBaseViewController, MNEditorDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+class MNTimelineViewController: MNBaseViewController, MNEditorDelegate, UIGestureRecognizerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     var collectionView: UICollectionView?
 //    var collectionViewLayout = MNCollectionViewFlowLayout()
@@ -22,9 +22,7 @@ class MNTimelineViewController: MNBaseViewController, MNEditorDelegate, UICollec
         super.loadView()
         view.backgroundColor = MNColors.White90()
         self.navigationItem.title = "芒果便签"
-                
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .add, target: self, action: #selector(createNewNote))
-        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -46,6 +44,9 @@ class MNTimelineViewController: MNBaseViewController, MNEditorDelegate, UICollec
 //            }
 //        }
     }
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +62,7 @@ class MNTimelineViewController: MNBaseViewController, MNEditorDelegate, UICollec
             collectionViewLayout.minimumLineSpacing = 10.0 //每个相邻的layout的上下间隔
             let rect = CGRect.init(x: 0, y: 0, width: APP_SCREEN_WIDTH, height: APP_SCREEN_HEIGHT)
             collectionView = UICollectionView.init(frame: rect, collectionViewLayout: collectionViewLayout)
-            collectionView?.backgroundColor = MNColors.bg4()
+            collectionView?.backgroundColor = MNColors.White95()
             collectionView?.register(MNTimelineCell.classForCoder(), forCellWithReuseIdentifier: reuseId)
             collectionView?.dataSource = self
             collectionView?.delegate = self
@@ -114,6 +115,11 @@ class MNTimelineViewController: MNBaseViewController, MNEditorDelegate, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as! MNTimelineCell
+        if cell.editMode {
+            cell.hideEditor()
+            return
+        }
         pushEditorViewController(model: model.noteAtIndex(indexPath.row))
     }
 
@@ -132,6 +138,12 @@ class MNTimelineViewController: MNBaseViewController, MNEditorDelegate, UICollec
         collectionView?.reloadData()
     }
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+    }
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
     /*
     // MARK: - Navigation
 

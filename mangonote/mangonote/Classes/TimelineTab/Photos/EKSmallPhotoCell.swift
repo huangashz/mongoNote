@@ -25,6 +25,8 @@ class EKSmallPhotoCell: UICollectionViewCell {
     
     func initUI() {
         photo = UIImageView.init(frame: self.bounds)
+        photo?.contentMode = .scaleAspectFill
+        photo?.clipsToBounds = true
         self.addSubview(photo!)
         
         let btnWidth = CGFloat(22)

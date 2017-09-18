@@ -17,7 +17,6 @@ class MNTimelineCell: UICollectionViewCell {
     lazy var line = UIView()
     
     var hasImage = false
-    var _cellHeight: CGFloat = 0
     
     override init(frame: CGRect) {
         super.init(frame: frame)

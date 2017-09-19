@@ -8,9 +8,10 @@
 
 import UIKit
 
+let MNShouldEndEditingNotification = "MNShouldEndEditingNotification"
 let reuseId = "collectionViewCellReuseId"
 
-class MNTimelineViewController: MNBaseViewController, MNEditorDelegate, UIGestureRecognizerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+class MNTimelineViewController: MNBaseViewController, MNEditorDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     var collectionView: UICollectionView?
 //    var collectionViewLayout = MNCollectionViewFlowLayout()
@@ -43,6 +44,10 @@ class MNTimelineViewController: MNBaseViewController, MNEditorDelegate, UIGestur
 //                mnRealm.add(note)
 //            }
 //        }
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.notifyAllCellsEndEditing()
     }
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
@@ -89,24 +94,32 @@ class MNTimelineViewController: MNBaseViewController, MNEditorDelegate, UIGestur
 
     // MARK: - UICollectionViewDataSource
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        
         return 1;
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
-        
         return model.numbersOfNotes();
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
-        
         let cell:MNTimelineCell  = collectionView.dequeueReusableCell(withReuseIdentifier: reuseId, for: indexPath as IndexPath) as! MNTimelineCell
         let noteInfo = model.noteAtIndex(indexPath.row)
         cell.updateContent(info: noteInfo)
+        cell.deleteBlock = {
+            collectionView.performBatchUpdates({
+                try! mnRealm.write {
+                    //从数据库中删除
+                    mnRealm.delete(noteInfo)
+                }
+                self.model.fetch()
+                collectionView.deleteItems(at: [indexPath])
+            }, completion: { (completed) in
+                if completed {
+                    collectionView.reloadData()
+                }
+            })
+         }
         return cell;
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -135,14 +148,20 @@ class MNTimelineViewController: MNBaseViewController, MNEditorDelegate, UIGestur
     func contentTextDidChanged() {
         editorViewController?.saveNote()
         model.fetch()
+        collectionView?.setContentOffset(CGPoint.init(x: 0, y: 0), animated: false)
         collectionView?.reloadData()
+    }
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        self.notifyAllCellsEndEditing()
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
     }
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        return true
+    
+    func notifyAllCellsEndEditing() {
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: MNShouldEndEditingNotification), object: nil)
     }
     /*
     // MARK: - Navigation

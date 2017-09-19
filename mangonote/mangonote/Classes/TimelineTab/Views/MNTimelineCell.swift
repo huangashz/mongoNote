@@ -8,9 +8,12 @@
 
 import UIKit
 import SnapKit
-
+ 
 class MNTimelineCell: UICollectionViewCell, UIGestureRecognizerDelegate {
     
+    var indexRow : NSInteger?
+    var deleteBlock:(()->Void)?
+
     lazy var dateLabel = UILabel()
     lazy var abstract = UILabel()
     lazy var imageView = UIImageView()
@@ -24,11 +27,13 @@ class MNTimelineCell: UICollectionViewCell, UIGestureRecognizerDelegate {
     var editMode = false
     var positionX : CGFloat = 0
     let gap = CGFloat(-100)
+    let critical = CGFloat(-50)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         initUI()
         addPanGesture()
+        NotificationCenter.default.addObserver(self, selector: #selector(receiveHideEditorNotify(notify:)), name: NSNotification.Name(rawValue: MNShouldEndEditingNotification), object: nil)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -128,15 +133,14 @@ class MNTimelineCell: UICollectionViewCell, UIGestureRecognizerDelegate {
     //MARK : - handlePanGesture
     func handlePanGesture(recognizer: UIPanGestureRecognizer) {
         let position = recognizer.translation(in: containerView)
-        
         if recognizer.state == .began {
-            
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: MNShouldEndEditingNotification), object: nil)
         }else if recognizer.state == .changed {
-            if position.x < 0 || (editMode && position.x + positionX < 0) {//向左滑 或者正在编辑
-                containerView.transform = CGAffineTransform(translationX: position.x + positionX , y: 0)
+            if position.x < 0 && position.x > gap - 20 {//向左滑 或者正在编辑
+                containerView.transform = CGAffineTransform(translationX: position.x , y: 0)
             }
         }else {
-            if position.x < gap {
+            if position.x < critical {
                 positionX = gap
                 showEditor()
             }else {
@@ -147,26 +151,38 @@ class MNTimelineCell: UICollectionViewCell, UIGestureRecognizerDelegate {
     }
     
     func showEditor() {
-         editMode = true
         UIView.animate(withDuration: 0.25, animations: {
             self.containerView.transform = CGAffineTransform(translationX: self.gap , y: 0)
-        })
+        }) { (completed) in
+            if completed {
+                self.editMode = true
+            }
+        }
     }
     
     func hideEditor() {
-        editMode = false
         UIView.animate(withDuration: 0.25, animations: {
             self.containerView.transform = CGAffineTransform(translationX: 0 , y: 0)
-        })
+        }) { (completed) in
+            if completed {
+                self.editMode = false
+            }
+        }
     }
 
+    func receiveHideEditorNotify(notify: NSNotification) {
+        self.hideEditor()
+    }
+    
     func deleteItem() {
-        
+        if deleteBlock != nil {
+            deleteBlock!()
+        }
     }
     
     //MARK: - GestureDelegate
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        return true
+        return panGesture?.translation(in: panGesture?.view).y == 0
     }
     override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         return abs((panGesture!.velocity(in: panGesture!.view)).x) > abs((panGesture!.velocity(in: panGesture!.view)).y)

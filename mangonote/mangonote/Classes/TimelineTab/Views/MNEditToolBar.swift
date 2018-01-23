@@ -27,13 +27,17 @@ class MNEditToolBar: UIView {
         self.backgroundColor = MNColors.bg1()
         self.addSubview(line)
         for i in 0..<4 {
-            let width = APP_SCREEN_WIDTH/4.0
+            let height = self.frame.size.height
+            let width = height
+            let space = (APP_SCREEN_WIDTH - 4*height)/5
+            
             let button = UIButton.init(type: .custom)
             button.tag = i;
-            button.frame = CGRect.init(x: CGFloat(i) * width, y: 0, width: width, height: self.frame.size.height)
+            button.frame = CGRect.init(x: space + CGFloat(i) * (width + space), y: 0, width: width, height: height)
             button.addTarget(self, action: #selector(MNEditToolBar.buttonClicked(_:)), for: .touchUpInside)
             button.setImage(image(index: i), for: .normal)
-            button.imageEdgeInsets = UIEdgeInsetsMake(10, 35, 10, 35)
+            button.contentMode = .scaleAspectFill
+            button.imageEdgeInsets = UIEdgeInsetsMake(10, 10, 10, 10)
             self.addSubview(button)
         }
     }

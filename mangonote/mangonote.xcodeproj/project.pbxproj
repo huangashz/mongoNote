@@ -7,10 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BD1F98451F4C6F89008E3302 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD1F98441F4C6F89008E3302 /* Assets.xcassets */; };
-		BD1F98481F4C6F89008E3302 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD1F98461F4C6F89008E3302 /* LaunchScreen.storyboard */; };
-		BD1F98531F4C6F89008E3302 /* mangonoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1F98521F4C6F89008E3302 /* mangonoteTests.swift */; };
-		BD1F985E1F4C6F89008E3302 /* mangonoteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1F985D1F4C6F89008E3302 /* mangonoteUITests.swift */; };
+		BD179D9421E4565F0029A1CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD179D9021E4565F0029A1CB /* Assets.xcassets */; };
+		BD179D9521E4565F0029A1CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD179D9121E4565F0029A1CB /* LaunchScreen.storyboard */; };
 		BD2DBC941F6BF4B400D7994D /* MNNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2DBC931F6BF4B400D7994D /* MNNote.swift */; };
 		BD2DBC981F6BF9B400D7994D /* MNTimelineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2DBC971F6BF9B400D7994D /* MNTimelineModel.swift */; };
 		BD317B221F57E596007F7E61 /* MNEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD317B211F57E596007F7E61 /* MNEditor.swift */; };
@@ -42,36 +40,13 @@
 		CDE18CA4E157573644211128 /* Pods_mangonote.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70CCEB1D85A049C61EB81F42 /* Pods_mangonote.framework */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		BD1F984F1F4C6F89008E3302 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BD1F98321F4C6F89008E3302 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = BD1F98391F4C6F89008E3302;
-			remoteInfo = mangonote;
-		};
-		BD1F985A1F4C6F89008E3302 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BD1F98321F4C6F89008E3302 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = BD1F98391F4C6F89008E3302;
-			remoteInfo = mangonote;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		3D9861D7DC38077BC29AD359 /* Pods-mangonote.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mangonote.release.xcconfig"; path = "Pods/Target Support Files/Pods-mangonote/Pods-mangonote.release.xcconfig"; sourceTree = "<group>"; };
 		70CCEB1D85A049C61EB81F42 /* Pods_mangonote.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mangonote.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD179D9021E4565F0029A1CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BD179D9221E4565F0029A1CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BD179D9321E4565F0029A1CB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BD1F983A1F4C6F89008E3302 /* mangonote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mangonote.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		BD1F98441F4C6F89008E3302 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		BD1F98471F4C6F89008E3302 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		BD1F98491F4C6F89008E3302 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BD1F984E1F4C6F89008E3302 /* mangonoteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mangonoteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BD1F98521F4C6F89008E3302 /* mangonoteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mangonoteTests.swift; sourceTree = "<group>"; };
-		BD1F98541F4C6F89008E3302 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BD1F98591F4C6F89008E3302 /* mangonoteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mangonoteUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BD1F985D1F4C6F89008E3302 /* mangonoteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mangonoteUITests.swift; sourceTree = "<group>"; };
-		BD1F985F1F4C6F89008E3302 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BD2DBC931F6BF4B400D7994D /* MNNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MNNote.swift; sourceTree = "<group>"; };
 		BD2DBC971F6BF9B400D7994D /* MNTimelineModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MNTimelineModel.swift; sourceTree = "<group>"; };
 		BD317B211F57E596007F7E61 /* MNEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MNEditor.swift; sourceTree = "<group>"; };
@@ -112,20 +87,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BD1F984B1F4C6F89008E3302 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BD1F98561F4C6F89008E3302 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -146,15 +107,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BD179D8F21E4565F0029A1CB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BD179D9021E4565F0029A1CB /* Assets.xcassets */,
+				BD179D9121E4565F0029A1CB /* LaunchScreen.storyboard */,
+				BD179D9321E4565F0029A1CB /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		BD1F98311F4C6F89008E3302 = {
 			isa = PBXGroup;
 			children = (
-				BD1F983C1F4C6F89008E3302 /* mangonote */,
-				BD1F98511F4C6F89008E3302 /* mangonoteTests */,
-				BD1F985C1F4C6F89008E3302 /* mangonoteUITests */,
-				BD1F983B1F4C6F89008E3302 /* Products */,
-				456B4F305A077E34DCB46B4E /* Pods */,
 				B4F35E2BE689049C7E5A5B0B /* Frameworks */,
+				BD1F983C1F4C6F89008E3302 /* mangonote */,
+				456B4F305A077E34DCB46B4E /* Pods */,
+				BD1F983B1F4C6F89008E3302 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -162,8 +131,6 @@
 			isa = PBXGroup;
 			children = (
 				BD1F983A1F4C6F89008E3302 /* mangonote.app */,
-				BD1F984E1F4C6F89008E3302 /* mangonoteTests.xctest */,
-				BD1F98591F4C6F89008E3302 /* mangonoteUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -171,31 +138,11 @@
 		BD1F983C1F4C6F89008E3302 /* mangonote */ = {
 			isa = PBXGroup;
 			children = (
-				BD317B251F584758007F7E61 /* Resources */,
 				BD6DBF1B1F56F55000B98052 /* Classes */,
-				BD1F98441F4C6F89008E3302 /* Assets.xcassets */,
-				BD1F98461F4C6F89008E3302 /* LaunchScreen.storyboard */,
-				BD1F98491F4C6F89008E3302 /* Info.plist */,
+				BD317B251F584758007F7E61 /* Resources */,
+				BD179D8F21E4565F0029A1CB /* Supporting Files */,
 			);
 			path = mangonote;
-			sourceTree = "<group>";
-		};
-		BD1F98511F4C6F89008E3302 /* mangonoteTests */ = {
-			isa = PBXGroup;
-			children = (
-				BD1F98521F4C6F89008E3302 /* mangonoteTests.swift */,
-				BD1F98541F4C6F89008E3302 /* Info.plist */,
-			);
-			path = mangonoteTests;
-			sourceTree = "<group>";
-		};
-		BD1F985C1F4C6F89008E3302 /* mangonoteUITests */ = {
-			isa = PBXGroup;
-			children = (
-				BD1F985D1F4C6F89008E3302 /* mangonoteUITests.swift */,
-				BD1F985F1F4C6F89008E3302 /* Info.plist */,
-			);
-			path = mangonoteUITests;
 			sourceTree = "<group>";
 		};
 		BD317B251F584758007F7E61 /* Resources */ = {
@@ -327,42 +274,6 @@
 			productReference = BD1F983A1F4C6F89008E3302 /* mangonote.app */;
 			productType = "com.apple.product-type.application";
 		};
-		BD1F984D1F4C6F89008E3302 /* mangonoteTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = BD1F98651F4C6F89008E3302 /* Build configuration list for PBXNativeTarget "mangonoteTests" */;
-			buildPhases = (
-				BD1F984A1F4C6F89008E3302 /* Sources */,
-				BD1F984B1F4C6F89008E3302 /* Frameworks */,
-				BD1F984C1F4C6F89008E3302 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				BD1F98501F4C6F89008E3302 /* PBXTargetDependency */,
-			);
-			name = mangonoteTests;
-			productName = mangonoteTests;
-			productReference = BD1F984E1F4C6F89008E3302 /* mangonoteTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		BD1F98581F4C6F89008E3302 /* mangonoteUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = BD1F98681F4C6F89008E3302 /* Build configuration list for PBXNativeTarget "mangonoteUITests" */;
-			buildPhases = (
-				BD1F98551F4C6F89008E3302 /* Sources */,
-				BD1F98561F4C6F89008E3302 /* Frameworks */,
-				BD1F98571F4C6F89008E3302 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				BD1F985B1F4C6F89008E3302 /* PBXTargetDependency */,
-			);
-			name = mangonoteUITests;
-			productName = mangonoteUITests;
-			productReference = BD1F98591F4C6F89008E3302 /* mangonoteUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -377,18 +288,6 @@
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = S2XPY7G7HH;
 						ProvisioningStyle = Automatic;
-					};
-					BD1F984D1F4C6F89008E3302 = {
-						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = S2XPY7G7HH;
-						ProvisioningStyle = Automatic;
-						TestTargetID = BD1F98391F4C6F89008E3302;
-					};
-					BD1F98581F4C6F89008E3302 = {
-						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = S2XPY7G7HH;
-						ProvisioningStyle = Automatic;
-						TestTargetID = BD1F98391F4C6F89008E3302;
 					};
 				};
 			};
@@ -406,8 +305,6 @@
 			projectRoot = "";
 			targets = (
 				BD1F98391F4C6F89008E3302 /* mangonote */,
-				BD1F984D1F4C6F89008E3302 /* mangonoteTests */,
-				BD1F98581F4C6F89008E3302 /* mangonoteUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -417,29 +314,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD1F98481F4C6F89008E3302 /* LaunchScreen.storyboard in Resources */,
 				BD317B2B1F584758007F7E61 /* camera.png in Resources */,
 				BD70C74C1F69375D00968969 /* image_pickerDefault@3x.png in Resources */,
 				BDCA635B1F6FEB480054362C /* delete.png in Resources */,
-				BD1F98451F4C6F89008E3302 /* Assets.xcassets in Resources */,
+				BD179D9421E4565F0029A1CB /* Assets.xcassets in Resources */,
 				BD70C74F1F69375D00968969 /* image_pickerDefault@2x.png in Resources */,
 				BD70C7401F692E1D00968969 /* mic.png in Resources */,
 				BD317B2D1F584758007F7E61 /* map.png in Resources */,
+				BD179D9521E4565F0029A1CB /* LaunchScreen.storyboard in Resources */,
 				BD70C73F1F692E1D00968969 /* pic.png in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BD1F984C1F4C6F89008E3302 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BD1F98571F4C6F89008E3302 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -532,42 +415,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BD1F984A1F4C6F89008E3302 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BD1F98531F4C6F89008E3302 /* mangonoteTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BD1F98551F4C6F89008E3302 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BD1F985E1F4C6F89008E3302 /* mangonoteUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		BD1F98501F4C6F89008E3302 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = BD1F98391F4C6F89008E3302 /* mangonote */;
-			targetProxy = BD1F984F1F4C6F89008E3302 /* PBXContainerItemProxy */;
-		};
-		BD1F985B1F4C6F89008E3302 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = BD1F98391F4C6F89008E3302 /* mangonote */;
-			targetProxy = BD1F985A1F4C6F89008E3302 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin PBXVariantGroup section */
-		BD1F98461F4C6F89008E3302 /* LaunchScreen.storyboard */ = {
+		BD179D9121E4565F0029A1CB /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				BD1F98471F4C6F89008E3302 /* Base */,
+				BD179D9221E4565F0029A1CB /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -673,8 +527,9 @@
 			baseConfigurationReference = D401247031CD35A50F128EE9 /* Pods-mangonote.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = S2XPY7G7HH;
-				INFOPLIST_FILE = mangonote/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/mangonote/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = EKKO.mangonote;
@@ -688,71 +543,14 @@
 			baseConfigurationReference = 3D9861D7DC38077BC29AD359 /* Pods-mangonote.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = S2XPY7G7HH;
-				INFOPLIST_FILE = mangonote/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/mangonote/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = EKKO.mangonote;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-			};
-			name = Release;
-		};
-		BD1F98661F4C6F89008E3302 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = S2XPY7G7HH;
-				INFOPLIST_FILE = mangonoteTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = EKKO.mangonoteTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/mangonote.app/mangonote";
-			};
-			name = Debug;
-		};
-		BD1F98671F4C6F89008E3302 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = S2XPY7G7HH;
-				INFOPLIST_FILE = mangonoteTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = EKKO.mangonoteTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/mangonote.app/mangonote";
-			};
-			name = Release;
-		};
-		BD1F98691F4C6F89008E3302 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = S2XPY7G7HH;
-				INFOPLIST_FILE = mangonoteUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = EKKO.mangonoteUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = mangonote;
-			};
-			name = Debug;
-		};
-		BD1F986A1F4C6F89008E3302 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = S2XPY7G7HH;
-				INFOPLIST_FILE = mangonoteUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = EKKO.mangonoteUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = mangonote;
 			};
 			name = Release;
 		};
@@ -773,24 +571,6 @@
 			buildConfigurations = (
 				BD1F98631F4C6F89008E3302 /* Debug */,
 				BD1F98641F4C6F89008E3302 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		BD1F98651F4C6F89008E3302 /* Build configuration list for PBXNativeTarget "mangonoteTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				BD1F98661F4C6F89008E3302 /* Debug */,
-				BD1F98671F4C6F89008E3302 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		BD1F98681F4C6F89008E3302 /* Build configuration list for PBXNativeTarget "mangonoteUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				BD1F98691F4C6F89008E3302 /* Debug */,
-				BD1F986A1F4C6F89008E3302 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
